@@ -1,0 +1,63 @@
+/code for our program
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+// Structure to store patient details
+struct patient {
+char name[50];
+int age;
+char gender[10];
+char address[100];
+char contact[15];
+};
+// Function to add patient detailsvoid addPatient(struct patient* p, int n) {
+printf("--- Add Patient Details ---\n");
+printf("Enter Name: ");
+scanf("%s", p[n].name);printf("Enter Age: ");
+scanf("%d", &p[n].age);printf("Enter Gender: ");
+scanf("%s", p[n].gender);printf("Enter Address: ");scanf("%s", p[n].address);
+printf("Enter Contact Number: ");
+scanf("%s", p[n].contact);
+printf("Patient details added successfully!\n");
+}
+// Function to display patient details
+void displayPatients(struct patient* p, int n) {
+printf("--- Patient Details ---\n");
+for (int i = 0; i < n; i++) {
+printf("Patient %d:\n", i + 1);
+printf("Name: %s\n", p[i].name);
+printf("Age: %d\n", p[i].age);
+printf("Age: %d\n", p[i].age);
+printf("Gender: %s\n", p[i].gender);
+printf("Address: %s\n", p[i].address);
+printf("Contact Number: %s\n", p[i].contact);
+printf("----------------------\n");
+}
+}
+int main() {
+int choice, count = 0;
+struct patient patients[100]; // Array to store patient 
+details
+while (1) {
+printf("\n--- Hospital Management System ---\n");
+printf("1. Add Patient\n");
+printf("2. Display Patients\n");
+printf("3. Exit\n");
+printf("Enter your choice: ");
+scanf("%d", &choice);
+switch (choice) {
+case 1:
+addPatient(patients, count);
+count++;
+break;
+case 2:
+displayPatients(patients, count);
+break;
+case 3:
+printf("Thank you for using the system. Exiting...\n");
+exit(0);
+default:
+printf("Invalid choice!\n");
+}
+}
+return 0;
